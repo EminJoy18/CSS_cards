@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Inclusive+Sans&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        @media (max-width: 600px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }            
+        }
+
+        body {
+            font-family: 'Inclusive Sans', sans-serif;
+            background-color:floralwhite;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+        .card {
+            height: 250px;
+            width: 250px;
+            padding: 15px;
+            background-color: azure;
+            /* border: 2px solid black; */
+            border-radius: 15px;
+            /* box-shadow: 2px 2px 2px 1px black; */
+            cursor: pointer;
+            transition: transform 3s;
+        }
+        .card:click{
+            transform: rotateY('180deg');
+        }
+        .back {
+            display: none;
+        }
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 5px;   
+        }
+        .details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .aisehi:hover{
+            width: 600px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card one">
+            <div class="heading">
+                <h3>Summary</h3>
+                <span class="material-symbols-outlined" style="margin-top: 17px;">more_vert</span>
+            </div>
+            <div class="details">
+                <h1 style="font-size: 100px;margin-top: 0px;margin-bottom: -20px;color: blue;">21</h1>
+                <h4 style="margin-bottom: 0px;color: blue;">Due Tasks</h4>
+                <h4 style="color: gray">Completed: 13</h4>
+            </div>
+        </div>
+
+        <div class="card one back">
+            <div class="heading">
+                <h3>Summary</h3>
+                <span class="material-symbols-outlined" style="margin-top: 17px;">close</span>
+            </div>
+            <h4 style="color: gray; display: flex;justify-content: center;">More information</h4>
+        </div>
+
+        <div class="card two">
+            <div class="heading">
+                <h3>Overdue</h3>
+                <span class="material-symbols-outlined" style="margin-top: 17px;">more_vert</span>
+            </div>
+            <div class="details">
+                <h1 style="font-size: 100px;margin-top: 0px;margin-bottom: -20px;color: red;">17</h1>
+                <h4 style="margin-bottom: 0px;color: red;">Projects</h4>
+                <h4 style="color: gray">Yesterday: 9</h4>
+            </div>
+        </div>
+
+        <div class="card two back">
+            <div class="heading">
+                <h3>Overdue</h3>
+                <span class="material-symbols-outlined" style="margin-top: 17px;">close</span>
+            </div>
+            <h4 style="color: gray; display: flex;justify-content: center;">More information</h4>
+        </div>
+
+        <div class="card three">
+            <div class="heading">
+                <h3>Features</h3>
+                <span class="material-symbols-outlined" style="margin-top: 17px;">more_vert</span>
+            </div>
+            <div class="details">
+                <h1 style="font-size: 100px;margin-top: 0px;margin-bottom: -20px;color: green;">38</h1>
+                <h4 style="margin-bottom: 0px;color: green;">Proposals</h4>
+                <h4 style="color: gray">Implemented: 6</h4>
+            </div>
+        </div>
+
+        <div class="card three back">
+            <div class="heading">
+                <h3>Features</h3>
+                <span class="material-symbols-outlined" style="margin-top: 17px;">close</span>
+            </div>
+            <h4 style="color: gray; display: flex;justify-content: center;">More information</h4>
+        </div>
+    </div>
+
+    <script>
+        var card1 = document.querySelector(".card.one");
+        var card2 = document.querySelector(".card.two");
+        var card3 = document.querySelector(".card.three");
+        
+        card1.addEventListener("click", function() {
+            card1.style.display = "none";
+            document.querySelector(".one.back").style.display = "block";
+        });
+        document.querySelector(".one.back").addEventListener("click", function() {
+            card1.style.display = "block";
+            document.querySelector(".one.back").style.display = "none";
+        });
+
+        card2.addEventListener("click", function() {
+            card2.style.display = "none";
+            document.querySelector(".two.back").style.display = "block";
+        });
+        document.querySelector(".two.back").addEventListener("click", function() {
+            card2.style.display = "block";
+            document.querySelector(".two.back").style.display = "none";
+        });
+
+        card3.addEventListener("click", function() {
+            card3.style.display = "none";
+            document.querySelector(".three.back").style.display = "block";
+        });
+        document.querySelector(".three.back").addEventListener("click", function() {
+            card3.style.display = "block";
+            document.querySelector(".three.back").style.display = "none";
+        });
+    </script>
+</body>
+</html>
