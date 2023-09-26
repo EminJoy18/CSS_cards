@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Oswald&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            height: 400px;
+            width: 300px;
+            background-image: linear-gradient(to bottom, #025464 35%, #F8F1F1 35% 100%);
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* box-shadow: 8px 8px 10px 1px; */
+        }
+
+        .photo {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            background-color: white;
+            border: 5px solid #E8AA42;
+            margin-top: 40px;
+        }
+
+        h3 {font-family: 'Work Sans', sans-serif;margin-top: 5px;}
+        h5 {font-family: 'Space Grotesk', sans-serif;;margin-top: -15px;}
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="photo"></div>
+        <h3>Emin Joy</h3>
+        <h5>Third Year Computer Engineering Student</h5>
+        <div class="contact-links logos">
+            <img src="./instagram-2-1-logo-svgrepo-com.svg" alt="instagram-logo-image" height="30px">
+            <img src="./linkedin-svgrepo-com.svg" alt="linkedin-logo" height="40px">
+            <img src="./github-svgrepo-com.svg" alt="github-logo" height="38px">
+        </div>
+    </div>
+</body>
+</html>
