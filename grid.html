@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Inclusive+Sans&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        .container {
+            font-family: 'Inclusive Sans', sans-serif;
+            height: 80vh;
+            display: grid;
+            grid-template-rows: 1fr 2fr 1fr;
+            grid-template-columns: 150px 400px;
+            gap: 10px;
+            grid-auto-rows: 50px;
+        }
+
+        .container > div {
+            background-color: blueviolet;
+            border-radius: 10px;
+            box-shadow: 5px 5px 2px 2px;
+        }
+
+        button {
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 2px 2px;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .pressed {
+            box-shadow: 0px 0px 0px 0px;
+            transform: translate(10px, 4px);
+        }
+
+        .button {
+            height: 50px;
+            width: 50px;
+            margin-top: 20px;
+            background-color: blueviolet;
+            border-top-right-radius: 25px;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 10px;
+            margin-left: 1400px;
+            position: absolute;
+        }
+        .message-screen {
+            position: relative;
+            display: none;
+            background-color:antiquewhite;
+            height: 400px;
+            width: 300px;
+            border-radius: 30px;
+        }
+        .message-screen > div {
+            height: 50px;
+            width: inherit;
+            background-color: blueviolet;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <button>Change Layout</button>
+    <div class="button"></div>
+    <div class="message-screen">
+        <div><span class="material-symbols-outlined" style="margin-top: 17px;">close</span></div>
+    </div>
+    <script>
+        document.querySelector("button").addEventListener("click", function() {
+            buttonAnimation();
+        });
+
+        function buttonAnimation()
+        {
+            document.querySelector("button").classList.add("pressed");
+            setTimeout(function(){
+                // document.querySelector("button").style.transform = "translate(10px, 4px)";
+                document.querySelector("button").classList.remove("pressed");
+                // document.querySelector("button").style.boxShadow = "0px 0px 0px 0px";
+            }, 200);
+        }
+
+        document.querySelector(".button").addEventListener("click", function() {
+            document.querySelector(".button").style.display = "none";  
+            document.querySelector(".message-screen").style.display = "flex";  
+        });
+    </script>
+</body>
+</html>
