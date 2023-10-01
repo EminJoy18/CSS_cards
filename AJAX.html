@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <button onclick=showCountries()>Show Countries</button>
+    <div id="feed"></div>
+
+    <script>
+        function showCountries()
+        {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://restcountries.com/v3.1/all', true); // true to confirm that it is asynchronous
+            xhr.send();
+            
+            //handling the response, received from the server
+            //handling the calllback
+            xhr.onload = function() {
+                if(xhr.status == 200) 
+                {
+                    console.log("Success");
+                    let countries = JSON.parse(this.response);
+                    console.log(countries);
+
+                    countries.forEach(country => {
+                        const countryCard = document.createElement("div");
+                        countryCard.innerHTML = country.name.official;
+
+                        const countryFlag = document.createElement("img");
+                        countryFlag.src = country.flags.svg;
+
+                        countryCard.appendChild(countryFlag);
+
+                        document.getElementById('feed').appendChild(countryCard);
+                    })
+                }
+            }
+        }
+    </script>
+</body>
+</html>
