@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Database</title>
+</head>
+<body>
+    <center>
+        <h1>Student Database</h1>
+
+        <label for="rollNumber">Enter Roll Number:</label>
+        <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+
+        <button onclick=lookup()>Lookup</button>
+
+        <div id="result"></div>
+    </center>
+    <script>
+        function lookup() 
+        {
+            const rollNumber = document.getElementById("rollNumber").value;
+            const resultElement = document.getElementById("result");
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () 
+            {
+                if (xhr.readyState === 4) 
+                {
+                    if (xhr.status === 200) 
+                    {
+                        const xmlDoc = xhr.responseXML;
+                        const students = xmlDoc.getElementsByTagName("student");
+                        let found = false;
+
+                        for (let i = 0; i < students.length; i++) 
+                        {
+                            const studentRollNumber = students[i].getElementsByTagName("rollNumber")[0].textContent;
+                            if (studentRollNumber === rollNumber) 
+                            {
+                                const studentName = students[i].getElementsByTagName("name")[0].textContent;
+                                const studentCGPA = students[i].getElementsByTagName("cgpa")[0].textContent;
+                                resultElement.innerHTML = `<p>Name: ${studentName}</p><p>CGPA: ${studentCGPA}</p>`;
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found)
+                        {
+                            resultElement.innerHTML = "<p>Student not found</p>";
+                        }
+                    } 
+                    else
+                    {
+                        resultElement.innerHTML = "<p>An error occurred</p>";
+                    }
+                }
+            };
+            xhr.open("GET", "students.xml", true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
