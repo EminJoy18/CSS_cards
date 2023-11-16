@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Inclusive+Sans&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,800&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            height: 99%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login {
+            height: 400px;
+            width: 300px;
+            /* padding-top: 30px; */
+            /* background-color: aqua; */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            filter:opacity(0.6);
+            font-family: 'Poppins', sans-serif;
+            z-index: 1;
+            margin-top: -30%;
+
+            background: rgba(14, 168, 111, 0.7);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(14, 168, 111, 1);
+        }
+        .circle {
+            height: 150px;
+            width: 150px;
+            border-radius: 75px;
+            background-color: red;
+            z-index: -1;
+        }
+        .top {
+            margin-left: -100%;
+            position: relative;
+            margin-top: 30%;
+        }
+        .btm {
+            margin-right: -100%;
+            position: relative;
+            margin-top: -20%;
+            height: 180px;
+            width: 180px;
+            border-radius: 90px;
+        }
+        input {
+            height: 25px;
+            width: 80%;
+            font-style: italic;
+            margin-top: -23px;
+            color: white;
+            background-color: grey;
+            border: none;
+        }
+        button {
+            height: 35px;
+            width: 100px;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top circle"></div>
+        <div class="login">
+            <h2 style="font-weight: bold;">Login</h2>
+            <label for="username" style="margin-left: -54%;">Username</label><br>
+            <input type="email" name="username">
+            <br>    
+            <label for="password" style="margin-left: -54%;">Password</label><br>
+            <input type="password" name="password">
+            <br>
+            <button onclick=btnclick() type="submit">Log In</button>
+        </div>
+        <div class="btm circle"></div>
+    </div>
+</body>
+</html>
